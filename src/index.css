@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* montserrat-regular - latin */
+  @font-face {
+    font-family: "ModernEra-Regular";
+    font-style: normal;
+    font-weight: 400;
+    src: url("./assets/fonts/ModernEra-Regular.woff2") format("woff2");
+  }
+  /* montserrat-700 - latin */
+  @font-face {
+    font-family: "ModernEra-Medium";
+    font-style: bold;
+    font-weight: 800;
+    src: url("./assets/fonts/ModernEra-Medium.woff2") format("woff2");
+  }
+  h1 {
+    @apply text-[34px] font-bold;
+  }
+  h2 {
+    @apply text-[28px] font-bold;
+  }
+  h3 {
+    @apply text-[24px] font-med;
+  }
+  h4 {
+    @apply text-[20px] font-med;
+  }
+  h5 {
+    @apply text-[18px] font-med;
+  }
+  h6 {
+    @apply text-[16px] font-med;
+  }
+}
+
+.box {
+  @apply border border-error-400;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
