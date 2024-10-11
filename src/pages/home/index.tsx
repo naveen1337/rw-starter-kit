@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { useHomeLocalState, HomeContext } from "./home-ctrl";
-import HomePageUI from "./home-page";
+import { useHomeLocalState, HomeContext } from "./home-ctrl.jsx";
+import HomePageUI from "./home-page.jsx";
 
 export default function HomePageHOC() {
   const dispatch = useDispatch();

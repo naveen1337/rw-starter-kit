@@ -1,5 +1,5 @@
 import { MainLayout, PageUIStatus } from "@components";
-import { PageProps } from "@types/app";
+import { PageProps } from "@types/app.js";
 import { useContext, useRef } from "react";
 
 import { HomeContext } from "./home-ctrl";

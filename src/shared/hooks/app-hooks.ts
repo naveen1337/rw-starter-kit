@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-//@ts-ignore
-import { useSnackbar } from "react-simple-snackbar";
 import {} from "../../remote/app-remote";
 
 export function isMounted() {
@@ -25,27 +23,7 @@ export function useScrollToTop() {
 
 
 export function useAppSnackBar() {
-  const [showErrorBar, closeErrorBar] = useSnackbar({
-    position: "bottom-right",
-    style: {
-      backgroundColor: "#ef233c",
-      borderRadius: 2,
-    },
-  });
-  const [showInfoBar, closeInfoBar] = useSnackbar({
-    position: "bottom-right",
-    style: {
-      backgroundColor: "#0984e3",
-      borderRadius: 2,
-    },
-  });
-
-  return {
-    showErrorBar,
-    closeErrorBar,
-    showInfoBar,
-    closeInfoBar,
-  };
+  return null
 }
 
 export function useModal() {
