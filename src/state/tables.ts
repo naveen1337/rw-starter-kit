@@ -26,19 +26,19 @@ export function randomNum(number:number){
     return Math.floor(Math.random() * number)
 }
 
-let listeners:any = [];
+export let listeners:any = new Map();
 
-export function pSubscribe(listener:any){
-    listeners = [...listeners, listener];
+export function productTableSub(func:any){
+    listeners.set("products",func)
     return () => {
-      listeners = listeners.filter(l => l !== listener);
+        listeners.delete("products")
     };
   }
 
 export function insert(inputTable: any, payload: any[]) {
     try {
         const table = dataTables[inputTable]
-        if (!table) return { "hell": "1" }
+        if (!table) return undefined
         for(let item of payload){
             table.data.push(item)
         }
@@ -47,11 +47,8 @@ export function insert(inputTable: any, payload: any[]) {
         const newO = table.version
 
         console.log("Is same",old === newO)
-
-        for (let listener of listeners) {
-            listener();
-          }
-        
+        const func = listeners.get(inputTable)
+        func()
     } catch (excep) {
         console.error(excep)
         return null
@@ -62,17 +59,6 @@ export function getSnapshot(){
     return dataTables["products"].version
   }
 
-// insert("products", [{
-//     "id": "101",
-//     "name": "apple",
-//     "price": 100,
-// }])
-
-// insert("products", [{
-//     "id": "102",
-//     "name": "apple",
-//     "price": 100,
-// }])
 
 function listen(table: string) {
     console.log("change detected")
