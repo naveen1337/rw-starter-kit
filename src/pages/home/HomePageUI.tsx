@@ -4,6 +4,9 @@ import { dataTables, getSnapshot, insert, productTableSub } from "../../state/ta
 import { HomeContext } from "./home-ctrl";
 import Products from "./components/ProductsList";
 import { PropTypes } from "./home-page";
+import Title from "./components/title";
+import Cart from "./components/cart";
+import { Link } from "react-router-dom";
 
 
 
@@ -15,7 +18,6 @@ export default function HomePageUI(props: PropTypes) {
 
   const productVersion = useSyncExternalStore(productTableSub, getSnapshot);
 
-  
   if (props.pageLoading || !ctx) {
     return <PageUIStatus error={false} />;
   }
@@ -30,17 +32,12 @@ export default function HomePageUI(props: PropTypes) {
         <Products />
 
         <h1>New</h1>
-        {
-           dataTables.products.data.map((item: any) => {
-            return (
-              <div key={item.id} className="box p-2 inline-block mx-2 ">
-                <p>{item.id} - {item.name}</p>
-                <p>{item.price}</p>
-                {/* <button onClick={() => selectProduct(item.id)} className=" bg-gray-300 p-2 my-2">select</button> */}
-              </div>
-            )
-          })
-        }
+
+      <Link to="/product">Go to Product</Link>
+
+        <Title text={"one"} />
+        <Cart text={"cart1"} />
+
       </div>
     </MainLayout>
   );
